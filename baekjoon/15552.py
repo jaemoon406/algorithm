@@ -183,50 +183,57 @@
 
 # # 틀림 재 풀이 필요함
 
-# # 10818
+# # 8958
 
+# """
+# "OOXXOXXOOO"와 같은 OX퀴즈의 결과가 있다. O는 문제를 맞은 것이고, X는 문제를 틀린 것이다.
+# 문제를 맞은 경우 그 문제의 점수는 그 문제까지 연속된 O의 개수가 된다. 예를 들어, 10번 문제의 점수는 3이 된다.
+# "OOXXOXXOOO"의 점수는 1+2+0+0+1+0+0+1+2+3 = 10점이다.
+# OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작성하시오.
 
-# # 3052
-# x = []
-# for i in range(5):
-#     n = int(input())
-#     # print(n)
-#     a = n % 42 
-#     x.append(a)
-# x = set(x)
-# print(len(x))
+# 첫째 줄에 테스트 케이스의 개수가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있고, 길이가 0보다 크고 80보다 작은 문자열이 주어진다. 
+# 문자열은 O와 X만으로 이루어져 있다.
+# """
 
-######################################### 1546
+# a = input()
+n = input()  # 테스트 횟수
+score = 0
+for _ in range(n):
+    score_list = list(input())
+    for i in range(len(score_list)):
+        if score_list[i] == 'O':
+            score + 1
+print(score)
 
-# 최대값 M
-# All/M*100
+"""
+4344
+대학생 새내기들의 90%는 자신이 반에서 평균은 넘는다고 생각한다. 당신은 그들에게 슬픈 진실을 알려줘야 한다.
 
-# n = int(input())
-# a = input().split(' ')
-# a.sort()
-# m = ''.join(a[-1:])
+첫째 줄에는 테스트 케이스의 개수 C가 주어진다.
+둘째 줄부터 각 테스트 케이스마다 학생의 수 N(1 ≤ N ≤ 1000, N은 정수)이 첫 수로 주어지고,
+이어서 N명의 점수가 주어진다. 점수는 0보다 크거나 같고, 100보다 작거나 같은 정수이다.
 
-# for i in range(n):
-#     score = int(a[i]) / int(m) * 100
-#     print(score)
-#     # sum(score)
-#     # c = a.split(' ')
-# #     print(a)
+각 케이스마다 한 줄씩 평균을 넘는 학생들의 비율을 반올림하여 소수점 셋째 자리까지 출력한다.
+"""
+from cgitb import reset
+from codecs import ascii_decode
+import sys
 
-
-
-# 8958
-x = 0
-n = int(input())
+n = int(sys.stdin.readline())
 for i in range(n):
-    a = input()
-    b = a.replace('X',' ').split(' ')
-    c = ' '.join(b).split()
-    # ['OO', 'O', 'OOO']
-    for j in range(len(c)):
-        print(len(c),'ccc')
-        for k in range(len(c[j])):
-            x = x + 1
-        # print(len(c[j]))
-        # print(len(c[j]))
-# print(x)
+    score = list(map(int,sys.stdin.readline().split()))[1:]
+    sum_score = sum(score)/len(score)
+    l = sum(1 for score in score if score > sum_score)
+    print(f"{(l/len(score))*100:.3f}%")
+
+"""
+15596
+정수 n개가 주어졌을 때, n개의 합을 구하는 함수를 작성하시오.
+
+a: 합을 구해야하는 정수 n개가 저장되어 있는 배열
+return: a에 포함되어 있는 정수 n개의 합
+"""
+def solve(a):
+    ans = sum(a)
+    return ans
+
